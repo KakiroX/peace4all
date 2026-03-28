@@ -1,0 +1,41 @@
+# Plan: Auto-Signup & Reddit-style Community
+
+## 1. No-Confirmation Sign-Up
+Currently, if email sending is not properly configured in Frappe, signups require manual admin verification. Even if configured, users must wait for an email to set their password. We will change this to allow users to set their password during signup and instantly log in.
+
+### [MODIFY] [signup-form.html](file:///c:/Users/karim/Documents/programming/Positive%20Peace/lms-develop/lms/templates/signup-form.html)
+- Add a new "Password" `<input>` field to the signup form.
+- Update the JavaScript AJAX call to pass the `password` value to the backend.
+
+### [MODIFY] [user.py](file:///c:/Users/karim/Documents/programming/Positive%20Peace/lms-develop/lms/lms/user.py)
+- Modify [sign_up()](file:///c:/Users/karim/Documents/programming/Positive%20Peace/lms-develop/lms/lms/user.py#26-76) to accept `password` as an argument.
+- Use this password instead of a `random_string()` when creating the [User](file:///c:/Users/karim/Documents/programming/Positive%20Peace/lms-develop/frontend/src/utils/index.js#385-400) doc.
+- Remove the strict check for `email_sent` that requires admin confirmation. Instead, return a success message telling the user to log in with their newly created credentials.
+
+---
+
+## 2. Reddit-style Community Functionality
+We will add a "Community" tab to the LMS where users can post topics, comment on them, and upvote/downvote posts/comments, similar to Reddit. 
+
+### Database (New Doctypes)
+To store this data, we will write a backend python script that programmatically generates three new Frappe Doctypes (so you don't have to create them manually in the UI):
+- **LMS Community Post**: Stores the Title, Content (Rich text), Author, and Vote count.
+- **LMS Community Comment**: Stores the Parent Post, Content, Author, and Vote count.
+- **LMS Community Vote**: Tracks which user voted on which Post/Comment to prevent duplicate voting.
+
+### Backend Endpoints (API)
+Create a new file `lms/lms/api/community.py` containing endpoints:
+- `get_posts()`: Returns a list of posts ordered by votes (or recent).
+- `get_post(post_name)`: Returns post details and all associated comments (nested).
+- `create_post(title, content)`: Creates a new Post.
+- `create_comment(post, content)`: Adds a comment to a Post.
+- `vote(reference_doctype, reference_name, vote_type)`: Handles upvoting (+1) and downvoting (-1) for posts and comments.
+
+### Frontend UI (Vue pages)
+- **[NEW] Community.vue**: The main feed displaying all posts with their vote counts and a "New Post" button. Added to the sidebar.
+- **[NEW] PostDetail.vue**: The detailed view of a single post, showing the content, the upvote/downvote controls, and the comment thread below it (with ability to add new comments).
+- **[MODIFY] router.js & index.js**: Add the new routes and add the "Community" link to the sidebar navigation.
+
+## Verification
+- Create a test account using the new signup form and verify login works immediately without admin approval.
+- Navigate to the Community tab, create a post, upvote it, comment on it, and ensure all data persists.
