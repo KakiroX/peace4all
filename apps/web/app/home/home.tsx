@@ -70,10 +70,9 @@ function HomeClient() {
           <div className="w-full max-w-md flex flex-col items-center">
             {/* Brand */}
             <div className="flex flex-col items-center mb-10">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/lrn.svg"
-                alt="LearnHouse"
+                src="/peace4all_icon.png"
+                alt="Peace4All"
                 width={44}
                 height={44}
                 className="opacity-90"
@@ -233,13 +232,13 @@ function HomeClient() {
 
             {/* Footer */}
             <a
-              href="https://learnhouse.app"
+              href="#"
               target="_blank"
               rel="noopener noreferrer"
               className="mt-10 flex items-center gap-1.5 text-[11px] text-black/30 hover:text-black/60 transition-colors"
             >
               <span>{t('common.powered_by', { defaultValue: 'Powered by' })}</span>
-              <span className="font-semibold tracking-tight text-black/50 group-hover:text-black/70">LearnHouse</span>
+              <span className="font-semibold tracking-tight text-black/50 group-hover:text-black/70">Peace4All</span>
             </a>
           </div>
         </div>

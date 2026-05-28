@@ -1,0 +1,68 @@
+services:
+  # ---------------------------------------------
+  # PostgreSQL Database
+  # ---------------------------------------------
+  - type: psql
+    name: peace4all-db
+    plan: free # Update to starter/standard for production
+    databaseName: peace4all
+    user: learnhouse
+
+  # ---------------------------------------------
+  # Redis Instance
+  # ---------------------------------------------
+  - type: redis
+    name: peace4all-redis
+    plan: free # Update to starter/standard for production
+    maxmemoryPolicy: noeviction
+
+  # ---------------------------------------------
+  # API Backend (FastAPI / Python)
+  # ---------------------------------------------
+  - type: web
+    name: peace4all-api
+    env: python
+    region: frankfurt
+    plan: free # Update for production
+    buildCommand: "pip install uv && cd apps/api && uv sync --no-dev"
+    startCommand: "cd apps/api && uv run uvicorn app:app --host 0.0.0.0 --port $PORT"
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11.0"
+      - key: LEARNHOUSE_SQL_CONNECTION_STRING
+        fromDatabase:
+          name: peace4all-db
+          property: connectionString
+      - key: LEARNHOUSE_REDIS_CONNECTION_STRING
+        fromService:
+          type: redis
+          name: peace4all-redis
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
+      - key: HOSTNAME
+        value: "0.0.0.0"
+
+  # ---------------------------------------------
+  # Collab Backend (Hocuspocus / Node)
+  # ---------------------------------------------
+  - type: web
+    name: peace4all-collab
+    env: node
+    region: frankfurt
+    plan: free # Update for production
+    buildCommand: "npm install -g bun && bun install --frozen-lockfile && cd apps/collab && bun run build"
+    startCommand: "npx tsx apps/collab/src/index.ts"
+    envVars:
+      - key: NODE_VERSION
+        value: "20.10.0"
+      - key: REDIS_URL
+        fromService:
+          type: redis
+          name: peace4all-redis
+          property: connectionString
+      - key: LEARNHOUSE_API_URL
+        fromService:
+          type: web
+          name: peace4all-api
+          envVarKey: RENDER_EXTERNAL_URL

@@ -121,7 +121,7 @@ function useContentReady(activityType: string, activitySubType?: string) {
 function EmbedActivityClient({ activityId, courseuuid, orgslug, bgcolor }: EmbedActivityClientProps) {
   const { t } = useTranslation()
   const searchParams = useSearchParams()
-  const showLearnHouseLogo = searchParams.get('showlearnhouselogo') !== 'false'
+  const showPeace4AllLogo = searchParams.get('showpeace4alllogo') !== 'false'
   const textColor = searchParams.get('textcolor')
 
   const { data: activity, isLoading: activityLoading } = useActivity(activityId)
@@ -168,8 +168,8 @@ function EmbedActivityClient({ activityId, courseuuid, orgslug, bgcolor }: Embed
         <div className="bg-white rounded-2xl nice-shadow p-8 max-w-md w-full text-center">
           <div className="mb-6">
             <Image
-              src="/learnhouse_bigicon.png"
-              alt="LearnHouse"
+              src="/peace4all_icon.png"
+              alt="Peace4All"
               width={64}
               height={64}
               className="mx-auto"
@@ -190,7 +190,7 @@ function EmbedActivityClient({ activityId, courseuuid, orgslug, bgcolor }: Embed
             {t('embed.visit_activity')}
           </a>
         </div>
-        {showLearnHouseLogo && <PoweredByBadge activityUrl={getActivityUrl()} />}
+        {showPeace4AllLogo && <PoweredByBadge activityUrl={getActivityUrl()} />}
       </div>
     )
   }
@@ -260,7 +260,7 @@ function EmbedActivityClient({ activityId, courseuuid, orgslug, bgcolor }: Embed
       >
         {renderActivityContent()}
       </div>
-      {showLearnHouseLogo && ready && <PoweredByBadge activityUrl={getActivityUrl()} />}
+      {showPeace4AllLogo && ready && <PoweredByBadge activityUrl={getActivityUrl()} />}
     </div>
   )
 }

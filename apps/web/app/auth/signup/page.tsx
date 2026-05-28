@@ -10,7 +10,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const orgslug = await getOrgSlug()
 
   if (!orgslug) {
-    return { title: 'Sign up — LearnHouse' }
+    return { title: 'Sign up — Peace4All' }
   }
 
   let org: any = null

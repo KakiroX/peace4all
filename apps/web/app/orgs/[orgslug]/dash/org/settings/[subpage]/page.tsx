@@ -40,7 +40,7 @@ const getSettingTabs = (t: any): TabConfig[] => [
   { id: 'features', label: t('dashboard.organization.settings.tabs.features') || 'Features', icon: ToggleRight },
   { id: 'landing', label: t('dashboard.organization.settings.tabs.landing'), icon: LayoutDashboardIcon },
   { id: 'seo', label: 'SEO', icon: Search },
-  { id: 'ai', label: t('dashboard.organization.settings.tabs.ai') || 'AI', customIcon: '/learnhouse_ai_simple_colored.png', requiredPlan: 'standard' },
+  { id: 'ai', label: t('dashboard.organization.settings.tabs.ai') || 'AI', customIcon: '/peace4all_icon.png', requiredPlan: 'standard' },
   { id: 'domains', label: t('dashboard.organization.settings.tabs.domains') || 'Domains', icon: Globe, requiredPlan: 'standard' },
   { id: 'automations', label: 'Automations', icon: Zap, requiredPlan: 'pro' },
   { id: 'api', label: t('dashboard.organization.settings.tabs.api') || 'API Access', icon: KeyIcon, requiredPlan: 'pro' },

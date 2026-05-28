@@ -7,7 +7,7 @@ import { motion } from 'motion/react'
 import toast from 'react-hot-toast'
 import { verifyStripeConnection } from '@services/payments/providers/stripe'
 import Image from 'next/image'
-import learnhouseIcon from 'public/learnhouse_bigicon_1.png'
+import peace4allIcon from 'public/peace4all_icon.png'
 import { useTranslation } from 'react-i18next'
 
 function StripeConnectCallbackInner() {
@@ -66,11 +66,10 @@ function StripeConnectCallbackInner() {
       <div className="flex flex-col items-center">
         <div className="mb-10">
           <Image
-            quality={100}
-            width={50}
-            height={50}
-            src={learnhouseIcon}
-            alt=""
+            src={peace4allIcon}
+            alt="Peace4All Logo"
+            width={48}
+            height={48}
           />
         </div>
 

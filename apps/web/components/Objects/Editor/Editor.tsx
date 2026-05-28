@@ -57,7 +57,6 @@ import Badges from './Extensions/Badges/Badges'
 import Buttons from './Extensions/Buttons/Buttons'
 import Flipcard from './Extensions/Flipcard/Flipcard'
 import Scenarios from './Extensions/Scenarios/Scenarios'
-import CodePlayground from './Extensions/CodePlayground/CodePlayground'
 import { useMediaQuery } from 'usehooks-ts'
 import UserAvatar from '../UserAvatar'
 import UserBlock from './Extensions/Users/UserBlock'
@@ -176,8 +175,6 @@ function Editor(props: Editor) {
       WebPreview.configure({ editable: true, activity: stableActivity }),
       Flipcard.configure({ editable: true, activity: stableActivity }),
       Scenarios.configure({ editable: true, activity: stableActivity }),
-      CodePlayground.configure({ editable: true, activity: stableActivity }),
-      DragHandle,
       SlashCommands.configure({ currentPlan }),
       PasteFileHandler.configure({
         activity: stableActivity,

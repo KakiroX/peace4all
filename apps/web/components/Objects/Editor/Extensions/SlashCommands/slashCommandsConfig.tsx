@@ -3,7 +3,6 @@ import {
   AlertTriangle,
   BadgeHelp,
   Code,
-  CodeSquare,
   Cuboid,
   FileText,
   Globe,
@@ -288,34 +287,7 @@ export const slashCommands: SlashCommandItem[] = [
       }).run()
     },
   },
-  {
-    id: 'codePlayground',
-    title: 'Code Playground',
-    description: 'Add a coding challenge with test cases',
-    icon: <CodeSquare size={18} />,
-    category: 'interactive',
-    keywords: ['code', 'playground', 'coding', 'challenge', 'judge', 'execute', 'run', 'programming'],
-    command: (editor) => {
-      editor.chain().focus().insertContent({
-        type: 'blockCode',
-        attrs: {
-          mode: 'advanced',
-          languageId: 71,
-          languageName: 'Python 3',
-          starterCode: '# Write your code here\n',
-          testCases: [],
-          description: '',
-          hints: [],
-          difficulty: 'medium',
-          solutionCode: '',
-          maxAttemptsBeforeReveal: 3,
-          timeComplexity: '',
-          spaceComplexity: '',
-          timeLimitMs: 10000,
-        },
-      }).run()
-    },
-  },
+
   {
     id: 'scenarios',
     title: 'Scenarios',

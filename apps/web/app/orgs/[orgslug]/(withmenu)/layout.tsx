@@ -38,10 +38,10 @@ function OrgFooter() {
       <div className="flex flex-col items-center justify-center space-y-4">
         {footerText && <p className="text-sm text-gray-500">{footerText}</p>}
         {showWatermark && (
-          <Link href="https://learnhouse.app" target="_blank" rel="noopener noreferrer">
+          <Link href="#" target="_blank" rel="noopener noreferrer">
             <Image
-              src="/lrn.svg"
-              alt="LearnHouse"
+              src="/peace4all_icon.png"
+              alt="Peace4All"
               width={24}
               height={24}
               style={{ height: 'auto' }}
