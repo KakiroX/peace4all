@@ -237,7 +237,7 @@ CHANGELOG_FILE=$(mktemp)
   echo "**Docker image:**"
   echo ""
   echo "\`\`\`bash"
-  echo "docker pull ghcr.io/learnhouse/app:${VERSION}"
+  echo "docker pull ghcr.io/kakirox/peace4all:${VERSION}"
   echo "\`\`\`"
   echo ""
   if [ "$MIGRATION_COUNT" -gt 0 ]; then

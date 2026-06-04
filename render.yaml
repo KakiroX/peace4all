@@ -1,15 +1,6 @@
 services:
   # ---------------------------------------------
-  # PostgreSQL Database
-  # ---------------------------------------------
-  - type: psql
-    name: peace4all-db
-    plan: free # Update to starter/standard for production
-    databaseName: peace4all
-    user: learnhouse
-
-  # ---------------------------------------------
-  # Redis Instance
+  # Redis Instance (Required for Collab and caching)
   # ---------------------------------------------
   - type: redis
     name: peace4all-redis
@@ -30,9 +21,7 @@ services:
       - key: PYTHON_VERSION
         value: "3.11.0"
       - key: LEARNHOUSE_SQL_CONNECTION_STRING
-        fromDatabase:
-          name: peace4all-db
-          property: connectionString
+        sync: false # Render will prompt for the Supabase Connection String during deployment
       - key: LEARNHOUSE_REDIS_CONNECTION_STRING
         fromService:
           type: redis
@@ -51,8 +40,8 @@ services:
     env: node
     region: frankfurt
     plan: free # Update for production
-    buildCommand: "npm install -g bun && bun install --frozen-lockfile && cd apps/collab && bun run build"
-    startCommand: "npx tsx apps/collab/src/index.ts"
+    buildCommand: "npm install -g bun && cd apps/collab && bun install --frozen-lockfile && bun run build"
+    startCommand: "cd apps/collab && npx tsx src/index.ts"
     envVars:
       - key: NODE_VERSION
         value: "20.10.0"

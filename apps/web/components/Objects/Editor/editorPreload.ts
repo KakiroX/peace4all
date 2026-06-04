@@ -14,7 +14,6 @@ const COMPONENT_LOADERS: Record<string, () => Promise<unknown>> = {
   blockUser: () => import('./Extensions/Users/UserBlockComponent'),
   blockWebPreview: () => import('./Extensions/WebPreview/WebPreviewComponent'),
   blockMagic: () => import('./Extensions/MagicBlocks/MagicBlockComponent'),
-  blockCode: () => import('./Extensions/CodePlayground/CodePlaygroundComponent'),
   scenarios: () => import('./Extensions/Scenarios/ScenariosExtension'),
   flipcard: () => import('./Extensions/Flipcard/FlipcardExtension'),
 }

@@ -11,7 +11,7 @@ permissions:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: learnhouse/app
+  IMAGE_NAME: kakirox/peace4all
 
 jobs:
   build:
@@ -197,7 +197,7 @@ jobs:
                 },
                 {
                   "name": "Docker",
-                  "value": "\`docker pull ghcr.io/learnhouse/app:${VERSION}\`",
+                  "value": "\`docker pull ghcr.io/kakirox/peace4all:${VERSION}\`",
                   "inline": false
                 }
               ],
