@@ -2,6 +2,7 @@
 
 import { useRef, useState } from "react";
 import { Download, Trash2, Upload } from "lucide-react";
+import { AccountCard } from "@/components/AccountBox";
 import { Button, Card, PageHeader, PageSkeleton, Segmented, SectionTitle } from "@/components/ui";
 import { useHydrated } from "@/lib/hydration";
 import { exportProgress, useProgress } from "@/lib/store";
@@ -33,7 +34,7 @@ export function SettingsView() {
   async function upload(file: File) {
     try {
       importData(JSON.parse(await file.text()));
-      setMessage("Backup restored.");
+      setMessage("Backup restored and merged into your progress.");
     } catch (err) {
       setMessage(err instanceof Error ? err.message : "Couldn't read that file.");
     }
@@ -42,6 +43,11 @@ export function SettingsView() {
   return (
     <div className="max-w-3xl">
       <PageHeader title="Settings" />
+
+      <Card className="mb-4 p-5">
+        <SectionTitle>Account &amp; sync</SectionTitle>
+        <AccountCard />
+      </Card>
 
       <Card className="mb-4 p-5">
         <SectionTitle>Exams</SectionTitle>
@@ -93,8 +99,8 @@ export function SettingsView() {
       <Card className="mb-4 p-5">
         <SectionTitle>Your data</SectionTitle>
         <p className="mb-4 text-sm text-ink-2">
-          Progress (<span className="tabular">{attempts}</span> answers) is stored in this browser only. Download a backup to move it to another
-          device or keep it safe.
+          <span className="tabular">{attempts}</span> answers on this device. Download a backup to keep a copy; restoring one merges it into your
+          current progress (nothing is deleted).
         </p>
         <div className="flex flex-wrap gap-2">
           <Button variant="secondary" onClick={download}>
@@ -142,7 +148,7 @@ export function SettingsView() {
           variant="danger"
           className="mt-4"
           onClick={() => {
-            if (confirm("Delete ALL progress, test results and settings? This can't be undone.")) resetAll();
+            if (confirm("Delete ALL progress, test results and settings (on every device you're signed in on)? This can't be undone.")) resetAll();
           }}
         >
           <Trash2 className="size-4" aria-hidden /> Reset everything

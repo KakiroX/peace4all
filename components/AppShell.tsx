@@ -5,7 +5,9 @@ import { usePathname } from "next/navigation";
 import clsx from "clsx";
 import { BarChart3, Flame, House, Settings, Target, type LucideIcon } from "lucide-react";
 import type { ReactNode } from "react";
+import { AccountBox, AccountCompact } from "@/components/AccountBox";
 import { SubjectDot } from "@/components/SubjectIcon";
+import { useAccountBoot } from "@/lib/account";
 import { useRehydrateOnMount } from "@/lib/hydration";
 import { SUBJECT_LIST } from "@/lib/subjects";
 
@@ -34,12 +36,13 @@ function Logo() {
 
 export function AppShell({ children }: { children: ReactNode }) {
   useRehydrateOnMount();
+  useAccountBoot();
   const pathname = usePathname();
 
   return (
     <div className="flex min-h-screen">
       {/* Desktop sidebar */}
-      <aside className="sticky top-0 hidden h-screen w-64 shrink-0 flex-col border-r border-line bg-surface px-4 py-5 md:flex">
+      <aside className="sticky top-0 hidden h-screen w-64 shrink-0 flex-col overflow-y-auto border-r border-line bg-surface px-4 py-5 md:flex">
         <Logo />
         <nav className="mt-8 flex flex-col gap-1" aria-label="Main">
           {NAV.map(({ href, label, icon: Icon }) => (
@@ -77,15 +80,16 @@ export function AppShell({ children }: { children: ReactNode }) {
             );
           })}
         </nav>
-        <p className="mt-auto px-3 text-xs leading-relaxed text-muted">
-          Progress is saved in this browser. Back it up from Settings.
-        </p>
+        <div className="mt-auto pt-6">
+          <AccountBox />
+        </div>
       </aside>
 
       <div className="flex min-w-0 flex-1 flex-col">
         {/* Mobile top bar */}
-        <header className="sticky top-0 z-20 flex h-14 items-center border-b border-line bg-surface/90 px-4 backdrop-blur md:hidden">
+        <header className="sticky top-0 z-20 flex h-14 items-center justify-between border-b border-line bg-surface/90 px-4 backdrop-blur md:hidden">
           <Logo />
+          <AccountCompact />
         </header>
 
         <main className="mx-auto w-full max-w-5xl flex-1 px-4 pb-28 pt-6 sm:px-6 md:px-10 md:pb-12 md:pt-10">{children}</main>

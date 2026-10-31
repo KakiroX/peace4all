@@ -10,9 +10,15 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 ## Project notes (IB Grind)
 
-- Web app for IB prep: Physics HL, Math AA HL, Chemistry SL, Business Management SL. Deployed on Vercel.
+- Web app for IB prep: Physics HL, Math AA HL, Chemistry SL, Business Management SL. Hosted on Vercel;
+  accounts + data on Firebase (Auth with Google, Firestore). Deploy steps: `DEPLOY.md`.
 - Content: syllabi in `content/subjects/*.ts`, question banks in `content/questions/*.json`. Format: `content/README.md`.
 - Engine lives in `lib/` (pure functions, unit-tested in `tests/`). UI in `components/`; route files in `app/` stay thin.
-- Learner state is client-only (Zustand + localStorage, `lib/store.ts`), hydrated after mount. Gate UI on `useHydrated()`.
+- Learner state lives in the browser (Zustand + localStorage, `lib/store.ts`), hydrated after mount. Gate UI on `useHydrated()`.
+  Signed-in users are mirrored to Firestore by `lib/sync.ts` (lazy-loaded; never import it statically).
+  Attempts are the source of truth; topic/question stats are derived (`deriveStats` in `lib/merge.ts`).
+  New synced fields must be added to `SyncedData`, `mergeSynced`, `parseRemote`/`writeProfile` and `firestore.rules`.
+- Firebase config: env `NEXT_PUBLIC_FIREBASE_*` or `COMMITTED_CONFIG` in `lib/firebase-config.ts` (public values).
+  Unset = local-only mode. Test sync locally with `npm run emulators` + the emulator block in `.env.example`.
   Don't call `Date.now()`/`Math.random()` during render (lint + Cache Components prerender reject it); use `useNow()` or event handlers.
 - Before committing: `npm run check && npm run build`.

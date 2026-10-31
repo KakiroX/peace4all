@@ -42,3 +42,10 @@ next-env.d.ts
 
 # Claude Code
 .claude/
+
+# Env template is committed
+!.env.example
+
+# Firebase emulator logs
+*-debug.log
+.firebase/

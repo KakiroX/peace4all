@@ -10,10 +10,12 @@
     "typecheck": "next typegen && tsc --noEmit",
     "test": "vitest run",
     "validate:content": "tsx scripts/validate-content.ts",
-    "check": "npm run validate:content && npm run typecheck && npm run lint && npm run test"
+    "check": "npm run validate:content && npm run typecheck && npm run lint && npm run test",
+    "emulators": "npx -y firebase-tools@15 emulators:start --only auth,firestore --project demo-ibgrind"
   },
   "dependencies": {
     "clsx": "^2.1.1",
+    "firebase": "^13.1.0",
     "katex": "^0.19.1",
     "lucide-react": "^1.66.0",
     "next": "16.4.3",
