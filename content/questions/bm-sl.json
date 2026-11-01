@@ -1,0 +1,153 @@
+[
+  {
+    "id": "bm-sample-001",
+    "subject": "bm-sl",
+    "topic": "1.2",
+    "type": "mcq",
+    "difficulty": 1,
+    "marks": 1,
+    "source": "Sample",
+    "prompt": "Which feature of a privately held company distinguishes it from a sole trader?",
+    "options": [
+      "Its shares are traded on a stock exchange",
+      "Its owners have limited liability",
+      "It is owned by the government",
+      "It must have only one owner"
+    ],
+    "answer": 1,
+    "explanation": "Shareholders of a company (private or public) have limited liability; a sole trader has unlimited liability. A private company's shares are **not** traded publicly."
+  },
+  {
+    "id": "bm-sample-002",
+    "subject": "bm-sl",
+    "topic": "1.4",
+    "type": "written",
+    "difficulty": 1,
+    "marks": 2,
+    "paper": "P1",
+    "source": "Sample",
+    "prompt": "Define the term *stakeholder*. **[2]**",
+    "markscheme": "An individual or group who has an interest in, and/or is affected by, the activities and performance of an organization.\n\n- **2 marks**: full, clear definition (interest in / affected by + the organization's activities).\n- **1 mark**: partial definition, e.g. \"someone who is affected by a business\"."
+  },
+  {
+    "id": "bm-sample-003",
+    "subject": "bm-sl",
+    "topic": "2.3",
+    "type": "mcq",
+    "difficulty": 1,
+    "marks": 1,
+    "source": "Sample",
+    "prompt": "A manager makes all decisions without consulting employees and closely supervises their work. Which leadership style is this?",
+    "options": [
+      "Democratic",
+      "Autocratic",
+      "Laissez-faire",
+      "Paternalistic"
+    ],
+    "answer": 1,
+    "explanation": "Autocratic leaders centralise decision-making and do not consult subordinates."
+  },
+  {
+    "id": "bm-sample-004",
+    "subject": "bm-sl",
+    "topic": "2.4",
+    "type": "mcq",
+    "difficulty": 2,
+    "marks": 1,
+    "source": "Sample",
+    "prompt": "According to Herzberg's two-factor theory, which of the following is a **hygiene factor**?",
+    "options": [
+      "Achievement",
+      "Recognition",
+      "Working conditions",
+      "Responsibility"
+    ],
+    "answer": 2,
+    "explanation": "Working conditions is a hygiene (maintenance) factor: it prevents dissatisfaction but doesn't motivate. The others are motivators."
+  },
+  {
+    "id": "bm-sample-005",
+    "subject": "bm-sl",
+    "topic": "3.5",
+    "type": "numeric",
+    "difficulty": 1,
+    "marks": 2,
+    "paper": "P2",
+    "source": "Sample",
+    "prompt": "A firm has sales revenue of \\$500,000 and cost of sales of \\$320,000. Calculate the gross profit margin (as a percentage).",
+    "answer": 36,
+    "units": "%",
+    "explanation": "Gross profit = \\$500,000 − \\$320,000 = \\$180,000.\n\n$\\text{GPM} = \\dfrac{180\\,000}{500\\,000} \\times 100 = 36\\%$"
+  },
+  {
+    "id": "bm-sample-006",
+    "subject": "bm-sl",
+    "topic": "3.5",
+    "type": "numeric",
+    "difficulty": 1,
+    "marks": 2,
+    "paper": "P2",
+    "source": "Sample",
+    "prompt": "A business has current assets of \\$90,000 and current liabilities of \\$60,000. Calculate the current ratio.",
+    "answer": 1.5,
+    "explanation": "Current ratio $= \\dfrac{\\text{current assets}}{\\text{current liabilities}} = \\dfrac{90\\,000}{60\\,000} = 1.5$ (often written $1.5 : 1$)."
+  },
+  {
+    "id": "bm-sample-007",
+    "subject": "bm-sl",
+    "topic": "3.8",
+    "type": "numeric",
+    "difficulty": 2,
+    "marks": 2,
+    "paper": "P2",
+    "source": "Sample",
+    "prompt": "A project costs \\$100,000 and generates a constant net cash flow of \\$30,000 per year. Calculate the payback period in years (to 2 decimal places).",
+    "answer": 3.3333333333,
+    "units": "years",
+    "explanation": "After 3 years, \\$90,000 has been recovered and \\$10,000 remains.\n\n$\\dfrac{10\\,000}{30\\,000} = 0.33$ years, so payback $= 3.33$ years (3 years 4 months)."
+  },
+  {
+    "id": "bm-sample-008",
+    "subject": "bm-sl",
+    "topic": "4.4",
+    "type": "mcq",
+    "difficulty": 1,
+    "marks": 1,
+    "source": "Sample",
+    "prompt": "Which of the following is an example of **primary** market research?",
+    "options": [
+      "Government census statistics",
+      "A questionnaire given to customers",
+      "A market analysis report bought from an agency",
+      "A newspaper article about the industry"
+    ],
+    "answer": 1,
+    "explanation": "Primary research is first-hand data collected by the business for its own purpose. The others are secondary sources."
+  },
+  {
+    "id": "bm-sample-009",
+    "subject": "bm-sl",
+    "topic": "4.5",
+    "type": "written",
+    "difficulty": 2,
+    "marks": 4,
+    "paper": "P1",
+    "source": "Sample",
+    "prompt": "Explain **two** ways a business could use promotion to increase its market share. **[4]**",
+    "markscheme": "For each of two methods (max 2 marks each):\n\n- **1 mark** for identifying a relevant promotion method, e.g. social-media advertising, sales promotions (BOGOF, discounts), sponsorship, influencer marketing, loyalty schemes.\n- **1 mark** for explaining how it increases market share, e.g. attracts customers from competitors, raises brand awareness among new segments, encourages repeat purchases.\n\nApplication to a specific context lifts answers in case-study questions."
+  },
+  {
+    "id": "bm-sample-010",
+    "subject": "bm-sl",
+    "topic": "5.5",
+    "type": "numeric",
+    "difficulty": 2,
+    "marks": 2,
+    "paper": "P2",
+    "source": "Sample",
+    "prompt": "A firm has fixed costs of \\$24,000. Each unit sells for \\$15 and has a variable cost of \\$9. Calculate the break-even quantity.",
+    "answer": 4000,
+    "units": "units",
+    "explanation": "Contribution per unit = \\$15 − \\$9 = \\$6.\n\n$\\text{Break-even} = \\dfrac{24\\,000}{6} = 4000$ units."
+  }
+]
